@@ -1,0 +1,43 @@
+.author {
+    font-weight: bold;
+    margin-right: 0.2rem;
+}
+
+.avatar {
+    width: 80px;
+    margin-right: 0.7rem;
+}
+
+.button {
+    color: gray;
+    margin-right: 60px;
+}
+
+.handle {
+    font-weight: lighter;
+    color: gray;
+}
+
+.handle::after {
+    content: " · ";
+}
+
+.message {
+    margin: 5px 0 15px 0;
+}
+
+.time {
+    color: gray;
+}
+
+.tweet {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid lightgrey;
+    padding: 10px;
+}
+
+.tweetDetails {
+    margin-top: 5px;
+}
+

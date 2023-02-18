@@ -7,21 +7,27 @@ import './index.css';
 const Tweet = () => {
     return (
         <div className='tweet'>
-            <Avatar />
-            <Author />
-            <Time />
-            <Message />
-            <ReplyButton />
-            <RetweetButton />
-            <LikeButton />
-            <MoreButton />
+
+                <Avatar />
+            <div className='tweetDetails'>
+                <Author />
+                <Time />
+                <Message />
+                <ReplyButton />
+                <RetweetButton />
+                <LikeButton />
+                <MoreButton />
+            </div>
+
         </div>
     )
 }
 
 const Avatar = () => {
     return (
-        <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" 
+        <img 
+        className='avatar'
+        src="https://cdn-icons-png.flaticon.com/512/147/147144.png" 
         alt="Avatar"
         />
     )
@@ -29,13 +35,16 @@ const Avatar = () => {
 
 const Author = () => {
     return (
-        <span>@ChrisWidstrom</span>
+        <>
+            <span className='author'>Chris Widstrom</span>
+            <span className='handle'>@CWidstrom</span>
+        </>
     )
 }
 
 const Message = () => {
     return (
-        <div>
+        <div className='message'>
             Hey everyone, im using Twitter!
         </div>
     )
@@ -43,24 +52,24 @@ const Message = () => {
 
 const Time = () => {
     return (
-        <span>08:15</span>
+        <span className='time'>08:15</span>
     )
 }
 
 const ReplyButton = () => {
-    return <FontAwesomeIcon icon={faReply}/>
+    return <span className='button'> <FontAwesomeIcon icon={faReply}/> </span>
 }
 
 const RetweetButton = () => {
-    return <FontAwesomeIcon icon={faRetweet}/>
+    return <span className='button'> <FontAwesomeIcon icon={faRetweet}/> </span>
 }
 
 const LikeButton = () => {
-    return <FontAwesomeIcon icon={faHeart}/>
+    return <span className='button'> <FontAwesomeIcon icon={faHeart}/> </span>
 }
 
 const MoreButton = () => {
-    return <FontAwesomeIcon icon={faEllipsis}/>
+    return <span className='button'> <FontAwesomeIcon icon={faEllipsis}/></span>
 }
 
 ReactDOM.render(<Tweet />, document.querySelector('#root'));
