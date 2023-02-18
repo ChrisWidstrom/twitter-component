@@ -1,12 +1,5 @@
-import React from 'react';
+import React from "react";
 
-
-const Message = ({ message }) => {
-    return (
-        <div className='message'>
-            {message}
-        </div>
-    );
-};
+const Message = ({ message }) => <div className="message">{message}</div>;
 
 export default Message;

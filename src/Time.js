@@ -1,11 +1,6 @@
-import React from 'react';
-import moment from 'moment';
+import React from "react";
+import moment from "moment";
 
-
-const Time = ({ time }) => {
-    return (
-        <span className='time'>{moment(time).fromNow()}</span>
-    );
-};
+const Time = ({ time }) => <span className="time">{moment(time).fromNow()}</span>;
 
 export default Time;
