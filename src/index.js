@@ -21,55 +21,68 @@ const Tweet = () => {
 
         </div>
     )
-}
+};
 
 const Avatar = () => {
-    return (
+    (
         <img 
         className='avatar'
-        src="https://cdn-icons-png.flaticon.com/512/147/147144.png" 
+        // src="https://cdn-icons-png.flaticon.com/512/147/147144.png" 
+        src="https://gravatar.com/avatar/nothing"
         alt="Avatar"
         />
     )
-}
+};
 
 const Author = () => {
-    return (
+    (
         <>
             <span className='author'>Chris Widstrom</span>
             <span className='handle'>@CWidstrom</span>
         </>
     )
-}
+};
 
 const Message = () => {
-    return (
+    (
         <div className='message'>
             Hey everyone, im using Twitter!
         </div>
     )
-}
+};
 
 const Time = () => {
-    return (
+    (
         <span className='time'>08:15</span>
     )
-}
+};
 
 const ReplyButton = () => {
-    return <span className='button'> <FontAwesomeIcon icon={faReply}/> </span>
+    <span className='button'> <FontAwesomeIcon icon={faReply}/> </span>
 }
 
 const RetweetButton = () => {
-    return <span className='button'> <FontAwesomeIcon icon={faRetweet}/> </span>
-}
+    <span className='button'> <FontAwesomeIcon icon={faRetweet}/> </span>
+};
 
 const LikeButton = () => {
-    return <span className='button'> <FontAwesomeIcon icon={faHeart}/> </span>
-}
+    <span className='button'> <FontAwesomeIcon icon={faHeart}/> </span>
+};
 
 const MoreButton = () => {
-    return <span className='button'> <FontAwesomeIcon icon={faEllipsis}/></span>
-}
+    <span className='button'> <FontAwesomeIcon icon={faEllipsis}/></span>
+};
+
+const data = {
+    message: 'This is a tweet!',
+    gravatar: '31d770f42d3fd514a71f729b213426c3',
+    author: {
+        handle: 'cwidstrom',
+        name: 'Chris Widstrom'
+    },
+    likes: 17,
+    retweets: 3,
+    timestamp: '2019-07-10 21:24:37'
+};
 
 ReactDOM.render(<Tweet />, document.querySelector('#root'));
