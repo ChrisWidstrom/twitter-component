@@ -5,7 +5,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 const Tweet = () => {
-    return <Avatar />
+    return (
+        <div className='tweet'>
+            <Avatar />
+            <Author />
+            <Time />
+        </div>
+    )
 }
 
 const Avatar = () => {
@@ -15,5 +21,19 @@ const Avatar = () => {
         />
     )
 }
+
+const Author = () => {
+    return (
+        <span>@ChrisWidstrom</span>
+    )
+}
+
+const Time = () => {
+    return (
+        <span>08:15</span>
+    )
+}
+
+
 
 ReactDOM.render(<Tweet />, document.querySelector('#root'));
