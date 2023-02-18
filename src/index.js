@@ -1,76 +1,76 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import moment from 'moment';
 import { faReply, faRetweet, faHeart, faEllipsis } from '@fortawesome/free-solid-svg-icons'
 import './index.css';
 
-const Tweet = () => {
+const Tweet = ({data}) => {
     return (
-        <div className='tweet'>
-
-                <Avatar />
-            <div className='tweetDetails'>
-                <Author />
-                <Time />
-                <Message />
-                <ReplyButton />
-                <RetweetButton />
-                <LikeButton />
-                <MoreButton />
+        <React.StrictMode>
+            <div className='tweet'>
+                    <Avatar gravatar={data.gravatar}/>
+                <div className='tweetDetails'>
+                    <Author author={data.author}/>
+                    <Time time={data.timestamp}/>
+                    <Message message={data.message}/>
+                    <ReplyButton />
+                    <RetweetButton />
+                    <LikeButton />
+                    <MoreButton />
+                </div>
             </div>
-
-        </div>
+        </React.StrictMode>
     )
 };
 
-const Avatar = () => {
-    (
+const Avatar = ({gravatar}) => {
+    return (
         <img 
         className='avatar'
-        // src="https://cdn-icons-png.flaticon.com/512/147/147144.png" 
-        src="https://gravatar.com/avatar/nothing"
+        src={`https://gravatar.com/avatar/${gravatar}`}
         alt="Avatar"
         />
     )
 };
 
-const Author = () => {
-    (
+const Author = ({author}) => {
+    return (
         <>
-            <span className='author'>Chris Widstrom</span>
-            <span className='handle'>@CWidstrom</span>
+            <span className='author'>{author.name}</span>
+            <span className='handle'>{author.handle}</span>
         </>
     )
 };
 
-const Message = () => {
-    (
+const Message = ({message}) => {
+    return (
         <div className='message'>
-            Hey everyone, im using Twitter!
+            {message}
         </div>
     )
 };
 
-const Time = () => {
-    (
-        <span className='time'>08:15</span>
+const Time = ({time}) => {
+    return (
+        <span className='time'>{moment(time).fromNow()}</span>
     )
 };
 
 const ReplyButton = () => {
-    <span className='button'> <FontAwesomeIcon icon={faReply}/> </span>
+    return <span className='button'> <FontAwesomeIcon icon={faReply}/> </span>
 }
 
 const RetweetButton = () => {
-    <span className='button'> <FontAwesomeIcon icon={faRetweet}/> </span>
+    return <span className='button'> <FontAwesomeIcon icon={faRetweet}/> </span>
 };
 
 const LikeButton = () => {
-    <span className='button'> <FontAwesomeIcon icon={faHeart}/> </span>
+    return <span className='button'> <FontAwesomeIcon icon={faHeart}/> </span>
 };
 
 const MoreButton = () => {
-    <span className='button'> <FontAwesomeIcon icon={faEllipsis}/></span>
+    return <span className='button'> <FontAwesomeIcon icon={faEllipsis}/></span>
 };
 
 const data = {
@@ -85,4 +85,5 @@ const data = {
     timestamp: '2019-07-10 21:24:37'
 };
 
-ReactDOM.render(<Tweet />, document.querySelector('#root'));
+const root = createRoot(document.getElementById('root'));
+root.render(<Tweet data={data}/>);
