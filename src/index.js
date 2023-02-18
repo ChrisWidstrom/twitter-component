@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faReply, faRetweet, faHeart, faEllipsis } from '@fortawesome/free-solid-svg-icons'
 import './index.css';
 
 const Tweet = () => {
@@ -10,6 +10,11 @@ const Tweet = () => {
             <Avatar />
             <Author />
             <Time />
+            <Message />
+            <ReplyButton />
+            <RetweetButton />
+            <LikeButton />
+            <MoreButton />
         </div>
     )
 }
@@ -28,12 +33,34 @@ const Author = () => {
     )
 }
 
+const Message = () => {
+    return (
+        <div>
+            Hey everyone, im using Twitter!
+        </div>
+    )
+}
+
 const Time = () => {
     return (
         <span>08:15</span>
     )
 }
 
+const ReplyButton = () => {
+    return <FontAwesomeIcon icon={faReply}/>
+}
 
+const RetweetButton = () => {
+    return <FontAwesomeIcon icon={faRetweet}/>
+}
+
+const LikeButton = () => {
+    return <FontAwesomeIcon icon={faHeart}/>
+}
+
+const MoreButton = () => {
+    return <FontAwesomeIcon icon={faEllipsis}/>
+}
 
 ReactDOM.render(<Tweet />, document.querySelector('#root'));
